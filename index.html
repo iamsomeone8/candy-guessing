@@ -27,51 +27,22 @@
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Optional: add a shadow for better readability */
             text-align: center; /* Center the paragraph horizontally */
         }
-        form {
-            display: flex; /* Use flexbox for the form elements */
-            flex-direction: column; /* Stack inputs vertically */
-            align-items: center; /* Center inputs horizontally */
-            width: 220px; /* Set a fixed width for the form */
-            margin: 20px auto; /* Center form horizontally with auto margins */
-        }
-        input, button {
-            margin: 5px;
-            padding: 10px;
-            width: 100%; /* Make inputs and button fill the width of the form */
-        }
-        button {
-            margin-top: 10px; /* Adds space above the button */
-            background-color: #5B3FD5; /* Halloween purple */
-            color: white; /* Set text color to white for contrast */
-            border: none; /* Remove default border */
-            border-radius: 5px; /* Optional: add rounded corners */
-            cursor: pointer; /* Change cursor to pointer on hover */
-            font-size: 1.2em; /* Optional: increase font size for the button */
-        }
-        button:hover {
-            background-color: #4a31b1; /* Darker shade on hover */
+        iframe {
+            display: block; /* Center the iframe */
+            margin: 20px auto; /* Center the iframe horizontally with auto margins */
+            border: none; /* Remove iframe border */
+            width: 640px; /* Set iframe width */
+            height: 642px; /* Set iframe height */
         }
     </style>
 </head>
 <body>
     <h1>Guess the Number of Candies!</h1>
     <p>Enter your guess, name, and phone number to win!</p>
-    <form id="guessForm">
-        <input type="text" id="name" name="name" placeholder="Your First Name" required>
-        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-        <input type="number" id="guess" name="guess" placeholder="Your Guess" required>
-        <button type="submit">Submit Guess</button> <!-- Button is now under the name input -->
-    </form>
+    
+    <!-- Embed Google Form -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbOneGuyHX7-n0778iQmG1aFoapFXP-mg5TuBhuMH9sGVL4g/viewform?embedded=true" width="640" height="642" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    
     <p id="responseMessage"></p>
-    <script>
-        document.getElementById('guessForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const guess = document.getElementById('guess').value;
-            // Save data using a free backend like Google Sheets API, Firebase, or similar
-            // In this case, Firebase is free for small projects and easy to set up
-        });
-    </script>
 </body>
 </html>
