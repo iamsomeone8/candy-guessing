@@ -52,9 +52,6 @@
             background-color: #4a31b1; /* Darker shade on hover */
         }
     </style>
-    <!-- Import Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
 </head>
 <body>
     <h1>Guess the Number of Candies!</h1>
@@ -63,64 +60,18 @@
         <input type="text" id="name" name="name" placeholder="Your First Name" required>
         <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
         <input type="number" id="guess" name="guess" placeholder="Your Guess" required>
-        <button type="submit">Submit Guess</button>
+        <button type="submit">Submit Guess</button> <!-- Button is now under the name input -->
     </form>
     <p id="responseMessage"></p>
-
     <script>
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAjOTUBasWpd7BZP7W2m6f61cLLfrsmS08",
-            authDomain: "candy-guessing.firebaseapp.com",
-            projectId: "candy-guessing",
-            storageBucket: "candy-guessing.appspot.com",
-            messagingSenderId: "954978482122",
-            appId: "1:954978482122:web:3e4a5a453714962ec30133",
-            measurementId: "G-6MDGKQ66TB"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // Set your target number
-        const targetNumber = 50; // You can change this number
-
         document.getElementById('guessForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const guess = parseInt(document.getElementById('guess').value);
-
-            // Save data to Firestore
-            await db.collection('guesses').add({
-                name: name,
-                phone: phone,
-                guess: guess,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
-            // Find the closest guess
-            const closest = await findClosestGuess(targetNumber);
-            document.getElementById('responseMessage').innerText = `Closest guess so far: ${closest}`;
+            const guess = document.getElementById('guess').value;
+            // Save data using a free backend like Google Sheets API, Firebase, or similar
+            // In this case, Firebase is free for small projects and easy to set up
         });
-
-        async function findClosestGuess(target) {
-            const snapshot = await db.collection('guesses').get();
-            let closest = null;
-            let closestDiff = Infinity;
-
-            snapshot.forEach((doc) => {
-                const guess = doc.data().guess;
-                const diff = Math.abs(guess - target);
-                if (diff < closestDiff) {
-                    closestDiff = diff;
-                    closest = guess;
-                }
-            });
-
-            return closest !== null ? closest : "No guesses yet";
-        }
     </script>
 </body>
 </html>
