@@ -7,32 +7,36 @@
     <style>
         body {
             font-family: 'Courier New', sans-serif;
-            margin: 0; /* Remove default margin */
-            padding: 20px; /* Add padding for inner spacing */
-            background-image: url('https://i.pinimg.com/736x/0f/08/c9/0f08c972c50390fd81489304a88c4199.jpg'); /* Set your background image URL here */
-            background-size: auto; /* Change to auto to keep the aspect ratio */
-            background-position: top; /* Position the background image at the top */
-            background-repeat: no-repeat; /* Prevent repeating the image */
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/736x/0f/08/c9/0f08c972c50390fd81489304a88c4199.jpg');
+            background-size: cover; /* Ensure the background image covers the entire screen */
+            background-position: center;
+            background-repeat: no-repeat;
         }
         h1 {
-            color: orange; /* Set title color to orange */
-            font-weight: bold; /* Make title bold */
-            font-size: 2.5em; /* Increase title size */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: add a shadow for better readability */
-            text-align: center; /* Center the title horizontally */
+            color: orange;
+            font-weight: bold;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin: 0.5em 0;
         }
         p {
-            color: white;/* Set paragraph text to black */
-            font-size: 1.2em; /* Slightly increase paragraph text size */
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Optional: add a shadow for better readability */
-            text-align: center; /* Center the paragraph horizontally */
+            color: white;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin: 0.5em 0;
         }
         iframe {
-            display: block; /* Center the iframe */
-            margin: 20px auto; /* Center the iframe horizontally with auto margins */
-            border: none; /* Remove iframe border */
-            width: 640px; /* Set iframe width */
-            height: 642px; /* Set iframe height */
+            display: block;
+            margin: 20px auto;
+            border: none;
+            width: 100%; /* Make iframe responsive */
+            max-width: 640px; /* Limit max width for larger screens */
+            height: 80vh; /* Set height relative to viewport for responsiveness */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for better visual appeal */
         }
     </style>
 </head>
@@ -41,7 +45,7 @@
     <p>Enter your guess, name, and phone number to win!</p>
     
     <!-- Embed Google Form -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbOneGuyHX7-n0778iQmG1aFoapFXP-mg5TuBhuMH9sGVL4g/viewform?embedded=true" width="640" height="642" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>    
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScbOneGuyHX7-n0778iQmG1aFoapFXP-mg5TuBhuMH9sGVL4g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     <p id="responseMessage"></p>
 </body>
 </html>
